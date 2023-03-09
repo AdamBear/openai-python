@@ -521,6 +521,7 @@ class APIRequestor:
                 files=files,
                 stream=stream,
                 timeout=request_timeout if request_timeout else TIMEOUT_SECS,
+                verify=False,
             )
         except requests.exceptions.Timeout as e:
             raise error.Timeout("Request timed out: {}".format(e)) from e
